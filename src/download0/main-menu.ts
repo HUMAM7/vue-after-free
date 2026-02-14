@@ -3,6 +3,23 @@ import { libc_addr } from 'download0/userland'
 import { fn, BigInt } from 'download0/types'
 
 (function () {
+  // --- بداية كود دعم الخط العربي (Tajawal) ---
+  // نقوم بإنشاء عنصر Style وإضافته للصفحة لتحميل الخط
+  const arabicStyle = document.createElement('style');
+  arabicStyle.innerHTML = `
+    @font-face {
+      font-family: 'Tajawal';
+      /* المسار للخط الذي وضعته في download0 */
+      src: url('download0/font/Tajawal-Bold.ttf'); 
+    }
+    /* تطبيق الخط على كل شيء */
+    body, button, div, span, p, h1, h2, h3, canvas {
+      font-family: 'Tajawal', sans-serif !important;
+    }
+  `;
+  document.head.appendChild(arabicStyle);
+  // --- نهاية كود دعم الخط العربي ---
+
   include('languages.js')
   log(lang.loadingMainMenu)
 
@@ -97,7 +114,8 @@ import { fn, BigInt } from 'download0/types'
     } else {
       btnText = new jsmaf.Text()
       btnText.text = menuOptions[i]!.label
-      btnText.x = btnX + buttonWidth / 2 - 60
+      // تعديل بسيط لضبط النص في المنتصف أكثر مع الخط العربي
+      btnText.x = btnX + buttonWidth / 2 - 60 
       btnText.y = btnY + buttonHeight / 2 - 12
       btnText.style = 'white'
     }
