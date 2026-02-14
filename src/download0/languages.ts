@@ -32,7 +32,9 @@ export let textImageBase = ''
 const detectedLocale = jsmaf.locale || 'en'
 log('Detected locale: ' + detectedLocale)
 
-const IMAGE_TEXT_LOCALES = ['ar', 'ja', 'ko', 'zh']
+// تعديل هام: تم حذف 'ar' من هذه القائمة ليعتمد النظام على الخطوط بدلاً من الصور
+const IMAGE_TEXT_LOCALES = ['ja', 'ko', 'zh']
+
 if (IMAGE_TEXT_LOCALES.includes(detectedLocale)) {
   useImageText = true
   textImageBase = 'file:///../download0/img/text/' + detectedLocale + '/'
@@ -64,69 +66,74 @@ switch (detectedLocale) {
     lang.loadingConfig = 'Cargando configuracion...'
     lang.configLoaded = 'Configuracion cargada'
     break
-    // vue doesnt have these locales in the fonts for asian and arabic languages. need to figure out how to load custom font . please reference /app0/assets/font/ for examples
-    // ~ case 'ar':
-    // ~ // Arabic
-    // ~ lang.jailbreak = 'Jailbreak'
-    // ~ lang.payloadMenu = 'قائمة الحمولة'
-    // ~ lang.config = 'الاعدادات'
-    // ~ lang.exit = 'خروج'
-    // ~ lang.back = 'رجوع'
-    // ~ lang.autoLapse = 'Auto Lapse'
-    // ~ lang.autoPoop = 'Auto Poop'
-    // ~ lang.autoClose = 'اغلاق تلقائي'
-    // ~ lang.totalAttempts = 'اجمالي المحاولات: '
-    // ~ lang.successes = 'النجاحات: '
-    // ~ lang.failures = 'الاخفاقات: '
-    // ~ lang.successRate = 'معدل النجاح: '
-    // ~ lang.failureRate = 'معدل الفشل: '
-    // ~ lang.loadingMainMenu = '...جاري تحميل القائمة الرئيسية'
-    // ~ lang.mainMenuLoaded = 'تم تحميل القائمة الرئيسية'
-    // ~ lang.loadingConfig = '...جاري تحميل الاعدادات'
-    // ~ lang.configLoaded = 'تم تحميل الاعدادات'
-    // ~ break
 
-    // ~ case 'ko':
-    // ~ // Korean
-    // ~ lang.jailbreak = '탈옥'
-    // ~ lang.payloadMenu = '페이로드 메뉴'
-    // ~ lang.config = '설정'
-    // ~ lang.exit = '종료'
-    // ~ lang.back = '뒤로'
-    // ~ lang.autoLapse = '자동 Lapse'
-    // ~ lang.autoPoop = '자동 Poop'
-    // ~ lang.autoClose = '자동 닫기'
-    // ~ lang.totalAttempts = '총 시도: '
-    // ~ lang.successes = '성공: '
-    // ~ lang.failures = '실패: '
-    // ~ lang.successRate = '성공률: '
-    // ~ lang.failureRate = '실패율: '
-    // ~ lang.loadingMainMenu = '메인 메뉴 로딩중...'
-    // ~ lang.mainMenuLoaded = '메인 메뉴 로딩 완료'
-    // ~ lang.loadingConfig = '설정 로딩중...'
-    // ~ lang.configLoaded = '설정 로딩 완료'
-    // ~ break
+  case 'ar':
+    // Arabic - تم التفعيل والتحسين
+    lang.jailbreak = 'تفعيل الثغرة'
+    lang.payloadMenu = 'قائمة الحمولات'
+    lang.config = 'الإعدادات'
+    lang.exit = 'خروج'
+    lang.back = 'رجوع'
+    lang.autoLapse = 'Auto Lapse'
+    lang.autoPoop = 'Auto Poop'
+    lang.autoClose = 'إغلاق تلقائي'
+    lang.music = 'موسيقى'
+    lang.jbBehavior = 'سلوك الثغرة'
+    lang.jbBehaviorAuto = 'كشف تلقائي'
+    lang.jbBehaviorNetctrl = 'تحكم شبكي'
+    lang.jbBehaviorLapse = 'Lapse'
+    lang.totalAttempts = 'إجمالي المحاولات: '
+    lang.successes = 'النجاحات: '
+    lang.failures = 'الإخفاقات: '
+    lang.successRate = 'نسبة النجاح: '
+    lang.failureRate = 'نسبة الفشل: '
+    lang.loadingMainMenu = 'جاري تحميل القائمة الرئيسية...'
+    lang.mainMenuLoaded = 'تم تحميل القائمة الرئيسية'
+    lang.loadingConfig = 'جاري تحميل الإعدادات...'
+    lang.configLoaded = 'تم تحميل الإعدادات'
+    break
 
-    // ~ case 'ja':
-    // ~ // Japanese
-    // ~ lang.jailbreak = '脱獄'
-    // ~ lang.payloadMenu = 'ペイロードメニュー'
-    // ~ lang.config = '設定'
-    // ~ lang.exit = '終了'
-    // ~ lang.back = '戻る'
-    // ~ lang.autoLapse = '自動Lapse'
-    // ~ lang.autoPoop = '自動Poop'
-    // ~ lang.autoClose = '自動終了'
-    // ~ lang.totalAttempts = '試行回数: '
-    // ~ lang.successes = '成功: '
-    // ~ lang.failures = '失敗: '
-    // ~ lang.successRate = '成功率: '
-    // ~ lang.failureRate = '失敗率: '
-    // ~ lang.loadingMainMenu = 'メインメニュー読み込み中...'
-    // ~ lang.mainMenuLoaded = 'メインメニュー読み込み完了'
-    // ~ lang.loadingConfig = '設定読み込み中...'
-    // ~ lang.configLoaded = '設定読み込み完了'
-    // ~ break
+  case 'ko':
+    // Korean
+    lang.jailbreak = '탈옥'
+    lang.payloadMenu = '페이로드 메뉴'
+    lang.config = '설정'
+    lang.exit = '종료'
+    lang.back = '뒤로'
+    lang.autoLapse = '자동 Lapse'
+    lang.autoPoop = '자동 Poop'
+    lang.autoClose = '자동 닫기'
+    lang.totalAttempts = '총 시도: '
+    lang.successes = '성공: '
+    lang.failures = '실패: '
+    lang.successRate = '성공률: '
+    lang.failureRate = '실패율: '
+    lang.loadingMainMenu = '메인 메뉴 로딩중...'
+    lang.mainMenuLoaded = '메인 메뉴 로딩 완료'
+    lang.loadingConfig = '설정 로딩중...'
+    lang.configLoaded = '설정 로딩 완료'
+    break
+
+  case 'ja':
+    // Japanese
+    lang.jailbreak = '脱獄'
+    lang.payloadMenu = 'ペイロードメニュー'
+    lang.config = '設定'
+    lang.exit = '終了'
+    lang.back = '戻る'
+    lang.autoLapse = '自動Lapse'
+    lang.autoPoop = '自動Poop'
+    lang.autoClose = '自動終了'
+    lang.totalAttempts = '試行回数: '
+    lang.successes = '成功: '
+    lang.failures = '失敗: '
+    lang.successRate = '成功率: '
+    lang.failureRate = '失敗率: '
+    lang.loadingMainMenu = 'メインメニュー読み込み中...'
+    lang.mainMenuLoaded = 'メインメニュー読み込み完了'
+    lang.loadingConfig = '設定読み込み中...'
+    lang.configLoaded = '設定読み込み完了'
+    break
 
   case 'pt':
     // Portuguese
@@ -308,84 +315,6 @@ switch (detectedLocale) {
     lang.mainMenuLoaded = 'Ana menu yuklendi'
     lang.loadingConfig = 'Ayarlar yukleniyor...'
     lang.configLoaded = 'Ayarlar yuklendi'
-    break
-
-  case 'ar':
-    // Arabic
-    lang.jailbreak = 'Jailbreak'
-    lang.payloadMenu = 'قائمة الحمولة'
-    lang.config = 'الاعدادات'
-    lang.exit = 'خروج'
-    lang.back = 'رجوع'
-    lang.autoLapse = 'Auto Lapse'
-    lang.autoPoop = 'Auto Poop'
-    lang.autoClose = 'اغلاق تلقائي'
-    lang.music = 'موسيقى'
-    lang.jbBehavior = 'سلوك JB'
-    lang.jbBehaviorAuto = 'كشف تلقائي'
-    lang.jbBehaviorNetctrl = 'NetControl'
-    lang.jbBehaviorLapse = 'Lapse'
-    lang.totalAttempts = 'اجمالي المحاولات: '
-    lang.successes = 'النجاحات: '
-    lang.failures = 'الاخفاقات: '
-    lang.successRate = 'معدل النجاح: '
-    lang.failureRate = 'معدل الفشل: '
-    lang.loadingMainMenu = 'جاري تحميل القائمة الرئيسية...'
-    lang.mainMenuLoaded = 'تم تحميل القائمة الرئيسية'
-    lang.loadingConfig = 'جاري تحميل الاعدادات...'
-    lang.configLoaded = 'تم تحميل الاعدادات'
-    break
-
-  case 'ja':
-    // Japanese
-    lang.jailbreak = '脱獄'
-    lang.payloadMenu = 'ペイロードメニュー'
-    lang.config = '設定'
-    lang.exit = '終了'
-    lang.back = '戻る'
-    lang.autoLapse = '自動Lapse'
-    lang.autoPoop = '自動Poop'
-    lang.autoClose = '自動終了'
-    lang.music = '音楽'
-    lang.jbBehavior = 'JB動作'
-    lang.jbBehaviorAuto = '自動検出'
-    lang.jbBehaviorNetctrl = 'NetControl'
-    lang.jbBehaviorLapse = 'Lapse'
-    lang.totalAttempts = '試行回数: '
-    lang.successes = '成功: '
-    lang.failures = '失敗: '
-    lang.successRate = '成功率: '
-    lang.failureRate = '失敗率: '
-    lang.loadingMainMenu = 'メインメニュー読み込み中...'
-    lang.mainMenuLoaded = 'メインメニュー読み込み完了'
-    lang.loadingConfig = '設定読み込み中...'
-    lang.configLoaded = '設定読み込み完了'
-    break
-
-  case 'ko':
-    // Korean
-    lang.jailbreak = '탈옥'
-    lang.payloadMenu = '페이로드 메뉴'
-    lang.config = '설정'
-    lang.exit = '종료'
-    lang.back = '뒤로'
-    lang.autoLapse = '자동 Lapse'
-    lang.autoPoop = '자동 Poop'
-    lang.autoClose = '자동 닫기'
-    lang.music = '음악'
-    lang.jbBehavior = 'JB 동작'
-    lang.jbBehaviorAuto = '자동 감지'
-    lang.jbBehaviorNetctrl = 'NetControl'
-    lang.jbBehaviorLapse = 'Lapse'
-    lang.totalAttempts = '총 시도: '
-    lang.successes = '성공: '
-    lang.failures = '실패: '
-    lang.successRate = '성공률: '
-    lang.failureRate = '실패율: '
-    lang.loadingMainMenu = '메인 메뉴 로딩중...'
-    lang.mainMenuLoaded = '메인 메뉴 로딩 완료'
-    lang.loadingConfig = '설정 로딩중...'
-    lang.configLoaded = '설정 로딩 완료'
     break
 
   case 'zh':
